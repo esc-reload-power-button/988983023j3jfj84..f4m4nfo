@@ -8,7 +8,7 @@
 
 /* Body and Background Animation */
 body {
-    background: linear-gradient(135deg, #2d3a4e, #2d3a4e 50%, #1b1f2a 100%); /* Deep space gradient */
+    background: linear-gradient(135deg, #001f3f, #001f3f 50%, #000 100%); /* Spacey gradient */
     color: #fff;
     font-size: 14px;
     overflow-x: hidden;
@@ -203,20 +203,20 @@ main {
     font-weight: 700;
 }
 
-/* Game Sections */
-.game-section {
+/* App Sections */
+.app-section {
     margin-bottom: 40px;
-    text-align: center; /* Center the text within the game-section */
+    text-align: center; /* Center the text within the app-section */
 }
 
-.game-info h3 {
+.app-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 700;
     position: relative; /* Position relative to allow for absolute positioning of the line */
 }
 
-.game-line {
+.app-line {
     width: 50px;
     height: 2px;
     background: #ff6600;
@@ -225,19 +225,19 @@ main {
     opacity: 0.7;
 }
 
-.game-grid {
+.app-grid {
     display: flex;
     justify-content: center;
     gap: 20px;
 }
 
-/* Game Thumbnails */
-.game-thumbnail {
+/* App Thumbnails */
+.app-thumbnail {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
 }
 
-.game-thumbnail img {
+.app-thumbnail img {
     width: 64px;
     height: 64px;
     border-radius: 8px;
@@ -246,15 +246,16 @@ main {
 }
 
 /* Hover effect */
-.game-thumbnail:hover img {
+.app-thumbnail:hover img {
     transform: scale(1.1); /* Scale up the image */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Enhance shadow on hover */
 }
 
-.game-thumbnail p {
+.app-thumbnail p {
     margin-top: 10px;
     font-size: 14px;
     color: #fff; /* Adjust as needed */
+    font-size: 14px; /* Adjust as needed */
     text-align: center;
     margin: 5px 0;
 }
@@ -296,16 +297,42 @@ footer {
     bottom: 0;
     width: 100%;
     color: #fff;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.footer-links a {
-    color: #ff6600;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 14px;
-}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .blur-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 
-.footer-links a:hover {
-    text-decoration: underline;
+    .blur-header nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .blur-header nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-bar input {
+        width: 100%; /* Full width on small screens */
+        margin-bottom: 10px; /* Space between input and button */
+    }
+
+    .search-bar button {
+        width: 100%; /* Full width on small screens */
+    }
+
+    .app-grid {
+        flex-direction: column;
+        align-items: center;
+    }
 }
