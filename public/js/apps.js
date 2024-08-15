@@ -53,7 +53,7 @@ async function fetchAppData(folderPath) {
 
 // Function to load apps
 async function loadApps() {
-    const appFolders = ['/apps/ExampleApp']; // Replace with actual app folder paths
+    const appFolders = ['/apps/UselessWeb']; // Replace with actual app folder paths
 
     for (const folderPath of appFolders) {
         const appInfo = await fetchAppData(folderPath);
