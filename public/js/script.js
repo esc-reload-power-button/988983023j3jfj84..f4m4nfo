@@ -2,12 +2,10 @@
 async function fetchGameData(folderPath) {
     try {
         const response = await fetch(`${folderPath}/info.txt`);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch ${folderPath}/info.txt`);
-        }
+        if (!response.ok) throw new Error(`Failed to fetch ${folderPath}/info.txt`);
         const data = await response.text();
         const gameInfo = {};
-
+        
         data.split('\n').forEach(line => {
             const [key, value] = line.split(':');
             if (key && value) {
@@ -16,13 +14,32 @@ async function fetchGameData(folderPath) {
         });
         return gameInfo;
     } catch (error) {
-        console.error(error);
+        console.error(error.message);
         return null;
     }
 }
 
+// Function to open game URL in a new tab
+function openGameInNewTab(url) {
+    const newTab = window.open('about:blank', '_blank');
+    newTab.document.open();
+    newTab.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Loading...</title>
+        </head>
+        <body style="margin: 0; height: 100vh; overflow: hidden;">
+            <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
+        </body>
+        </html>
+    `);
+    newTab.document.close();
+}
+
+// Function to load games
 async function loadGames() {
-    const gameFolders = ['/games/SmashKarts']; // Update with correct paths
+    const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
@@ -33,7 +50,7 @@ async function loadGames() {
         }
 
         const gameImageSrc = `${folderPath}/game.png`;
-        const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase()) || 'other-games';
+        const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase().replace(/\s+/g, '-') + '-games') || 'unknown-games';
         
         const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
         
@@ -66,27 +83,6 @@ async function loadGames() {
         gameThumbnail.appendChild(link);
         gameGrid.appendChild(gameThumbnail);
     }
-}
-
-// Function to open the game in a new tab with an about:blank intermediary
-function openGameInNewTab(gameUrl) {
-    const newTab = window.open('about:blank', '_blank');
-
-    newTab.document.open();
-    newTab.document.write(`
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Game</title>
-        </head>
-        <body>
-            <iframe src="${gameUrl}" style="width:100%; height:100%; border:none;"></iframe>
-        </body>
-        </html>
-    `);
-    newTab.document.close();
 }
 
 // Load the games when the page is loaded
