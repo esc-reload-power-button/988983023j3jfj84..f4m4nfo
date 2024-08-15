@@ -1,43 +1,33 @@
-// Function to fetch game data
-async function fetchGameData(folderPath) {
-    try {
-        const response = await fetch(`${folderPath}/info.txt`);
-        if (!response.ok) throw new Error(`Failed to fetch ${folderPath}/info.txt`);
-        const data = await response.text();
-        const gameInfo = {};
-        
-        data.split('\n').forEach(line => {
-            const [key, value] = line.split(':');
-            if (key && value) {
-                gameInfo[key.trim()] = value.trim();
-            }
-        });
-        return gameInfo;
-    } catch (error) {
-        console.error(error.message);
-        return null;
-    }
-}
-
 // Function to open game URL in a new tab
-function openGameInNewTab(https://www.example.com) {
-    try {
-        const newTab = window.open('about:blank', '_blank');
-        newTab.document.open();
-        newTab.document.write(`
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <title>Loading...</title>
-            </head>
-            <body style="margin: 0; height: 100vh; overflow: hidden;">
-                <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
-            </body>
-            </html>
-        `);
-        newTab.document.close();
-    } catch (error) {
-        console.error('Failed to open game in new tab:', error.message);
+function openGameInNewTab(url) {
+    var win;
+
+    if (url) {
+        if (win) {
+            win.focus();
+        } else {
+            win = window.open('about:blank', '_blank');
+            win.document.open();
+            win.document.write(`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Loading...</title>
+                </head>
+                <body style="margin: 0; height: 100vh; overflow: hidden;">
+                    <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
+                </body>
+                </html>
+            `);
+            win.document.close();
+        }
+        // Change the button's state after opening the game
+        const button = document.querySelector(`.game-thumbnail[data-url="${url}"] .game-link`);
+        if (button) {
+            button.style.backgroundColor = 'grey';
+            button.style.borderColor = 'grey';
+            button.innerHTML = "Opened";
+        }
     }
 }
 
