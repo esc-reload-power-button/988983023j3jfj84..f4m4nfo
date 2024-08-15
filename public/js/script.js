@@ -21,20 +21,24 @@ async function fetchGameData(folderPath) {
 
 // Function to open game URL in a new tab
 function openGameInNewTab(url) {
-    const newTab = window.open('about:blank', '_blank');
-    newTab.document.open();
-    newTab.document.write(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Loading...</title>
-        </head>
-        <body style="margin: 0; height: 100vh; overflow: hidden;">
-            <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
-        </body>
-        </html>
-    `);
-    newTab.document.close();
+    try {
+        const newTab = window.open('about:blank', '_blank');
+        newTab.document.open();
+        newTab.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Loading...</title>
+            </head>
+            <body style="margin: 0; height: 100vh; overflow: hidden;">
+                <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
+            </body>
+            </html>
+        `);
+        newTab.document.close();
+    } catch (error) {
+        console.error('Failed to open game in new tab:', error.message);
+    }
 }
 
 // Function to load games
