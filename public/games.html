@@ -125,14 +125,16 @@
         </section>
     </main>
 
-    <!-- Modal for embedding game -->
-    <div id="gameModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <iframe id="gameFrame" src="" allowfullscreen></iframe>
-            <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen</button>
-        </div>
+<!-- Modal -->
+<div id="gameModal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+        <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
     </div>
+</div>
+<button id="fullscreenBtn">Fullscreen</button>
+
 
     <!-- Footer -->
     <footer>
