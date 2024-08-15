@@ -86,7 +86,6 @@ async function loadGames() {
 
         gameThumbnail.appendChild(img);
         gameThumbnail.appendChild(title);
-        gameThumbnail.appendChild(description);
         gameGrid.appendChild(gameThumbnail);
 
         // Make the game thumbnail clickable
