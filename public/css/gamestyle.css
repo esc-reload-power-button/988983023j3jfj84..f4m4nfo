@@ -1,24 +1,51 @@
-/* General Reset */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Quicksand', sans-serif; /* Apply the custom font */
 }
 
 /* Body and Background Animation */
 body {
-    background: linear-gradient(135deg, #001f3f, #001f3f 50%, #000 100%);
+    background: linear-gradient(135deg, #001f3f, #001f3f 50%, #000 100%); /* Spacey gradient */
     color: #fff;
     font-size: 14px;
     overflow-x: hidden;
-    min-height: 100vh;
+    position: relative;
+    min-height: 100vh; /* Ensure body takes full viewport height */
     display: flex;
     flex-direction: column;
-    user-select: none;
+    user-select: none; /* Disable text selection */
+    -webkit-user-select: none; /* Disable text selection for WebKit browsers */
 }
 
-/* Header with Blur Effect */
+/* Disable dragging of images */
+img {
+    user-drag: none; /* Standard syntax */
+    -webkit-user-drag: none; /* WebKit syntax for Safari/Chrome */
+}
+
+/* Background Animation */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    animation: twinkle 5s infinite alternate;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Blur Effect on Header */
 .blur-header {
     position: fixed;
     top: 0;
@@ -27,11 +54,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    backdrop-filter: blur(10px);
-    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px); /* Blurring the background */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black */
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    animation: headerSlideIn 0.5s ease-out;
+    animation: headerSlideIn 0.5s ease-out; /* Header slide-in animation */
 }
 
 @keyframes headerSlideIn {
@@ -42,14 +69,14 @@ body {
 .logo img {
     max-height: 40px;
     width: auto;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Smooth logo hover effect */
 }
 
 .logo img:hover {
-    transform: scale(1.1);
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-/* Navigation Menu */
+/* Navigation List */
 .blur-header nav ul {
     list-style: none;
     display: flex;
@@ -65,54 +92,54 @@ body {
 .blur-header nav ul li .dropdown-content {
     display: none;
     position: absolute;
-    top: 145%;
+    top: 145%; /* Right under the header */
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.5); /* Match the header */
     backdrop-filter: blur(10px);
     padding: 10px;
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     min-width: 120px;
-    margin-top: 10px;
-    opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
+    margin-top: 10px; /* Space between header and dropdown */
+    opacity: 0; /* Start hidden */
+    transform: scaleY(0); /* Start scaled down */
+    transform-origin: top; /* Scale from the top */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Fade in and scale up */
+    pointer-events: none; /* Prevent interaction before visibility */
 }
 
 .blur-header nav ul li .dropdown-content.show {
     display: block;
-    opacity: 1;
-    transform: scaleY(1);
-    pointer-events: auto;
+    opacity: 1; /* Show */
+    transform: scaleY(1); /* Scale to full size */
+    pointer-events: auto; /* Enable interaction */
 }
 
 /* Dropdown Links */
 .blur-header nav ul li .dropdown-content a {
     display: block;
-    color: #ccc;
+    color: #ccc; /* Updated text color */
     padding: 5px 10px;
     text-decoration: none;
     font-size: 14px;
-    font-weight: 400;
-    transition: color 0.3s ease;
+    font-weight: 400; /* Adjust as needed */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .blur-header nav ul li .dropdown-content a:hover {
-    color: #fff;
+    color: #fff; /* Hover color */
 }
 
 /* Dropdown Icon */
 .dropdown-icon {
-    width: 20px;
+    width: 20px; /* Adjust icon size */
     height: auto;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: transform 0.3s ease; /* Smooth icon hover effect */
+    cursor: pointer; /* Indicate it's clickable */
 }
 
 .dropdown-icon:hover {
-    transform: scale(1.2);
+    transform: scale(1.2); /* Enlarge icon on hover */
 }
 
 /* Search Bar */
@@ -130,7 +157,7 @@ body {
     color: #fff;
     outline: none;
     font-size: 14px;
-    width: 200px;
+    width: 200px; /* Adjust width as needed */
 }
 
 .search-bar button {
@@ -142,20 +169,46 @@ body {
 }
 
 .search-bar button img {
-    width: 20px;
+    width: 20px; /* Adjust icon size */
     height: auto;
 }
 
 /* Main Section Styles */
 main {
-    padding: 80px 20px;
+    padding: 80px 20px; /* Padding to account for fixed header */
 }
 
+.main-section {
+    text-align: center;
+}
+
+.blurred-frame {
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    max-width: 800px;
+    position: relative;
+}
+
+.frame-top {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Game Sections */
 .game-section {
     margin-bottom: 40px;
 }
 
-.game-section h3 {
+.game-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 700;
@@ -174,17 +227,15 @@ main {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Ensure it wraps on smaller screens */
 }
 
-/* Game Thumbnail */
 .game-thumbnail {
     text-align: center;
 }
 
 .game-thumbnail img {
-    width: 100px; /* Adjusted size for consistency */
-    height: 100px; /* Adjusted size for consistency */
+    width: 64px;
+    height: 64px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
@@ -195,61 +246,32 @@ main {
     color: #fff;
 }
 
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+/* Button Styles */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-.modal-content {
-    background-color: #222;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 800px;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-.close {
-    color: #ff6600;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Fullscreen Button */
-.fullscreen-btn {
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
+.button-frame {
     display: inline-block;
-    font-size: 16px;
-    margin: 10px 0;
-    cursor: pointer;
-    border-radius: 6px;
 }
 
-.fullscreen-btn:hover {
-    background-color: #ff3300;
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff6600;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.button:hover {
+    background: #ff3300; /* Darker shade on hover */
 }
 
 /* Footer */
@@ -267,4 +289,75 @@ footer {
 footer p {
     margin: 0;
     font-size: 14px;
+}
+
+/* Modal Styles */
+#gameModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* On top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    backdrop-filter: blur(10px); /* Blur the background behind the modal */
+}
+
+#gameModal .modal-content {
+    margin: 5% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
+    background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
+    border-radius: 12px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Modal Text */
+#gameModal .warning-text {
+    margin-top: 10px;
+    color: #ff6600;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Fullscreen Button */
+#fullscreenBtn {
+    position: absolute; /* Positioned relative to the modal content */
+    bottom: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
+    background: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1002; /* Ensure it stays on top of other modal content */
+}
+
+#fullscreenBtn:hover {
+    background: #ff3300;
+}
+
+/* Exit Button */
+.close {
+    position: absolute;
+    top: -7px; /* Adjusted position */
+    right: 5px;
+    color: #ff6600; /* Ensure orange color */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1003; /* Ensure it's visible over the modal content */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff3300;
+    text-decoration: none;
+    cursor: pointer;
 }
