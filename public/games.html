@@ -125,15 +125,15 @@
         </section>
     </main>
 
-<!-- Modal -->
-<div id="gameModal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
-        <button id="fullscreenBtn">Fullscreen</button> <!-- Moved inside the modal -->
-        <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
+    <!-- Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+            <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen</button>
+            <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
+        </div>
     </div>
-</div>
 
     <!-- Footer -->
     <footer>
@@ -142,5 +142,12 @@
 
     <!-- JavaScript for Dropdown Toggle and Loading Games -->
     <script src="js/script.js"></script>
+    <script>
+        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
+            event.preventDefault();
+            const dropdownContent = document.getElementById('dropdown-content');
+            dropdownContent.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>
