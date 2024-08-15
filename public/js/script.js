@@ -1,3 +1,33 @@
+// Function to open the game in a modal
+function openGameInModal(url) {
+    const modal = document.getElementById('gameModal');
+    const iframe = document.getElementById('gameFrame');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    iframe.src = url;
+    modal.style.display = 'block';
+
+    // Close the modal
+    const closeModal = document.querySelector('.close');
+    closeModal.onclick = function() {
+        modal.style.display = 'none';
+        iframe.src = ''; // Stop the game when closing the modal
+    };
+
+    // Toggle fullscreen mode
+    fullscreenBtn.onclick = function() {
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { /* Firefox */
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+            iframe.msRequestFullscreen();
+        }
+    };
+}
+
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
@@ -16,32 +46,6 @@ async function fetchGameData(folderPath) {
     } catch (error) {
         console.error(error.message);
         return null;
-    }
-}
-
-// Function to open the game URL in a new tab with iframe
-function openGameInNewTab(url) {
-    var win;
-
-    if (url) {
-        if (win) {
-            win.focus();
-        } else {
-            win = window.open('about:blank', '_blank');
-            win.document.open();
-            win.document.write(`
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <title>Loading...</title>
-                </head>
-                <body style="margin: 0; height: 100vh; overflow: hidden;">
-                    <iframe src="${url}" style="width: 100%; height: 100%; border: none;"></iframe>
-                </body>
-                </html>
-            `);
-            win.document.close();
-        }
     }
 }
 
@@ -83,7 +87,7 @@ async function loadGames() {
         link.textContent = 'Play'; // Add a text to make it clickable
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            openGameInNewTab(gameInfo.URL);
+            openGameInModal(gameInfo.URL);
         });
 
         gameThumbnail.appendChild(img);
