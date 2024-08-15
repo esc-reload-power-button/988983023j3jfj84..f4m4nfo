@@ -76,16 +76,24 @@ async function loadGames() {
 
         const gameThumbnail = document.createElement('div');
         gameThumbnail.className = 'game-thumbnail';
-        
+
         const img = document.createElement('img');
         img.src = gameImageSrc;
-        img.alt = gameInfo.Title || 'Game Thumbnail';
+        img.alt = gameInfo.Name || 'Game Thumbnail';
+
+        const title = document.createElement('p');
+        title.textContent = gameInfo.Name || 'Unknown Title';
+
+        const description = document.createElement('p');
+        description.textContent = gameInfo.Genre || 'No genre available.';
 
         gameThumbnail.appendChild(img);
+        gameThumbnail.appendChild(title);
+        gameThumbnail.appendChild(description);
         gameGrid.appendChild(gameThumbnail);
 
         // Make the game thumbnail clickable
-        gameThumbnail.onclick = () => openGameInModal(folderPath);
+        gameThumbnail.onclick = () => openGameInModal(gameInfo.URL);
     }
 }
 

@@ -250,9 +250,12 @@ main {
 }
 
 .game-thumbnail p {
-    margin-top: 10px;
+	margin-top: 10px;
     font-size: 14px;
-    color: #fff;
+    color: #fff; /* Adjust as needed */
+    font-size: 14px; /* Adjust as needed */
+    text-align: center;
+    margin: 5px 0;
 }
 
 /* Button Styles */
