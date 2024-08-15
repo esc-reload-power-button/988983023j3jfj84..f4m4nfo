@@ -1,33 +1,31 @@
-// Function to open the game in a modal
-function openGameInModal(url) {
-    const modal = document.getElementById('gameModal');
-    const iframe = document.getElementById('gameFrame');
-    const fullscreenBtn = document.getElementById('fullscreenBtn');
-
-    console.log('Opening game URL:', url); // Debug line to check URL
-
-    iframe.src = url;
-    modal.style.display = 'block';
-
-    // Close the modal
-    const closeModal = document.querySelector('.close');
-    closeModal.onclick = function() {
-        modal.style.display = 'none';
-        iframe.src = ''; // Stop the game when closing the modal
-    };
-
-    // Toggle fullscreen mode
-    fullscreenBtn.onclick = function() {
-        if (iframe.requestFullscreen) {
-            iframe.requestFullscreen();
-        } else if (iframe.mozRequestFullScreen) { /* Firefox */
-            iframe.mozRequestFullScreen();
-        } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            iframe.webkitRequestFullscreen();
-        } else if (iframe.msRequestFullscreen) { /* IE/Edge */
-            iframe.msRequestFullscreen();
-        }
-    };
+// Function to open the game in a new cloaked tab
+function openGameInCloakedTab(url) {
+    // Create a new cloaked tab
+    const win = window.open('about:blank', '_blank');
+    win.document.open();
+    win.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Game</title>
+            <style>
+                body {
+                    margin: 0;
+                    overflow: hidden;
+                }
+                iframe {
+                    width: 100vw;
+                    height: 100vh;
+                    border: none;
+                }
+            </style>
+        </head>
+        <body>
+            <iframe src="${url}" sandbox="allow-same-origin allow-scripts"></iframe>
+        </body>
+        </html>
+    `);
+    win.document.close();
 }
 
 // Function to fetch game data
@@ -52,7 +50,6 @@ async function fetchGameData(folderPath) {
 }
 
 // Function to load games
-
 async function loadGames() {
     const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
 
@@ -89,10 +86,9 @@ async function loadGames() {
         gameGrid.appendChild(gameThumbnail);
 
         // Make the game thumbnail clickable
-        gameThumbnail.onclick = () => openGameInModal(gameInfo.URL);
+        gameThumbnail.onclick = () => openGameInCloakedTab(gameInfo.URL);
     }
 }
-
 
 // Load the games when the page is loaded
 window.addEventListener('load', loadGames);
