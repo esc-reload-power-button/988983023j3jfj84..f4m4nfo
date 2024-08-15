@@ -33,7 +33,7 @@ async function loadGames() {
         }
 
         const gameImageSrc = `${folderPath}/game.png`;
-        const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase()) || 'unknown-games';
+        const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase()) || 'other-games';
         
         const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
         
