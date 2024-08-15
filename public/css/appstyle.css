@@ -336,3 +336,76 @@ footer {
         align-items: center;
     }
 }
+
+/* Modal Styles */
+#appModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* On top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    backdrop-filter: blur(10px); /* Blur the background behind the modal */
+}
+
+/* Modal Content */
+#appModal .modal-content {
+    margin: 5% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
+    background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
+    border-radius: 12px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
+    box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Modal Text */
+#appModal .warning-text {
+    margin-top: 10px;
+    color: #ff6600;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Fullscreen Button */
+#fullscreenBtn {
+    position: absolute; /* Positioned relative to the modal content */
+    bottom: 10px; /* Adjusted from previous */
+    left: 10px; /* Adjusted from previous */
+    background: #ff6600;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    z-index: 1002; /* Ensure it stays on top of other modal content */
+    transition: background 0.3s ease; /* Smooth background transition */
+}
+
+#fullscreenBtn:hover {
+    background: #ff3300;
+}
+
+/* Exit Button */
+.close {
+    position: absolute;
+    top: 10px; /* Adjusted from previous */
+    right: 10px; /* Adjusted from previous */
+    color: #ff6600; /* Ensure orange color */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1003; /* Ensure it's visible over the modal content */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.close:hover,
+.close:focus {
+    color: #ff3300;
+    text-decoration: none;
+}
