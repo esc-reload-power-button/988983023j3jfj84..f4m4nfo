@@ -22,7 +22,7 @@ async function fetchGameData(folderPath) {
 }
 
 async function loadGames() {
-    const gameFolders = ['/games/SmashKarts', '/games/Minecraft']; // Update with correct paths
+    const gameFolders = ['/games/SmashKarts']; // Update with correct paths
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);

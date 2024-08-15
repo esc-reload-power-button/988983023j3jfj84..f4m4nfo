@@ -1,3 +1,0 @@
-Name: Minecraft
-Genre: Action
-URL: https://smashkartsonline.github.io

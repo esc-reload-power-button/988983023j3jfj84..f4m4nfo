@@ -1,3 +1,3 @@
 Name: Smash Karts
-Genre: Action
+Genre: popular
 URL: https://smashkartsonline.github.io
