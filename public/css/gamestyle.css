@@ -326,8 +326,8 @@ footer p {
 /* Fullscreen Button */
 #fullscreenBtn {
     position: fixed; /* Positioned relative to the viewport */
-    bottom: 50px;
-    left: 50px; /* Move to bottom-left */
+    bottom: -20px;
+    left: 0px; /* Move to bottom-left */
     background: #ff6600;
     color: #fff;
     border: none;
@@ -344,8 +344,8 @@ footer p {
 /* Exit Button */
 .close {
     position: absolute;
-    top: -30px;
-    right: -30px;
+    top: -10px;
+    right: -10px;
     color: #ff6600;
     font-size: 28px;
     font-weight: bold;
