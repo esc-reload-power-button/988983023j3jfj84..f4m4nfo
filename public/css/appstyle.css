@@ -338,7 +338,7 @@ footer {
 }
 
 /* Modal Styles */
-#appModal {
+#gameModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1001; /* On top */
@@ -350,22 +350,31 @@ footer {
     backdrop-filter: blur(10px); /* Blur the background behind the modal */
 }
 
-/* Modal Content */
-#appModal .modal-content {
+#gameModal .modal-content {
     margin: 5% auto; /* Center the modal vertically and horizontally */
     padding: 20px;
     background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
-    border-radius: 12px; /* Rounded corners */
+    border-radius: 12px;
     max-width: 800px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
+    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
     box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Modal Text */
+#gameModal .warning-text {
+    margin-top: 10px;
+    color: #ff6600;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
 }
 
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 10px; /* Adjust as needed */
+    bottom: 0px; /* Adjust as needed */
     left: 10px; /* Adjust as needed */
     background: #ff6600;
     color: #fff;
@@ -383,8 +392,8 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: 10px; /* Adjusted position */
-    right: 10px;
+    top: -7px; /* Adjusted position */
+    right: 5px;
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;
@@ -397,16 +406,4 @@ footer {
     color: #ff3300;
     text-decoration: none;
     cursor: pointer;
-}
-
-/* Hide fullscreen button and exit button in fullscreen mode */
-#appModal:fullscreen .fullscreen-btn,
-#appModal:-webkit-full-screen .fullscreen-btn,
-#appModal:-moz-full-screen .fullscreen-btn,
-#appModal:-ms-fullscreen .fullscreen-btn,
-#appModal:fullscreen .close,
-#appModal:-webkit-full-screen .close,
-#appModal:-moz-full-screen .close,
-#appModal:-ms-fullscreen .close {
-    display: none; /* Hide buttons in fullscreen mode */
 }

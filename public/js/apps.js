@@ -3,7 +3,7 @@ function openAppInModal(url) {
     const modal = document.getElementById('appModal');
     const iframe = document.getElementById('appFrame');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const closeModal = document.querySelector('#appModal .close');
+    const modalContent = document.querySelector('#appModal .modal-content');
 
     console.log('Opening app URL:', url); // Debug line to check URL
 
@@ -11,6 +11,7 @@ function openAppInModal(url) {
     modal.style.display = 'block';
 
     // Close the modal
+    const closeModal = document.querySelector('#appModal .close');
     closeModal.onclick = function() {
         modal.style.display = 'none';
         iframe.src = ''; // Stop the app when closing the modal
