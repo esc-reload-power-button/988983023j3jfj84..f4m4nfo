@@ -3,7 +3,7 @@ function openAppInModal(url) {
     const modal = document.getElementById('appModal');
     const iframe = document.getElementById('appFrame');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
-    const fullscreenContainer = document.getElementById('fullscreenContainer');
+    const modalContent = document.querySelector('#appModal .modal-content');
 
     console.log('Opening app URL:', url); // Debug line to check URL
 
@@ -19,14 +19,14 @@ function openAppInModal(url) {
 
     // Toggle fullscreen mode
     fullscreenBtn.onclick = function() {
-        if (fullscreenContainer.requestFullscreen) {
-            fullscreenContainer.requestFullscreen();
-        } else if (fullscreenContainer.mozRequestFullScreen) { /* Firefox */
-            fullscreenContainer.mozRequestFullScreen();
-        } else if (fullscreenContainer.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            fullscreenContainer.webkitRequestFullscreen();
-        } else if (fullscreenContainer.msRequestFullscreen) { /* IE/Edge */
-            fullscreenContainer.msRequestFullscreen();
+        if (modalContent.requestFullscreen) {
+            modalContent.requestFullscreen();
+        } else if (modalContent.mozRequestFullScreen) { /* Firefox */
+            modalContent.mozRequestFullScreen();
+        } else if (modalContent.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            modalContent.webkitRequestFullscreen();
+        } else if (modalContent.msRequestFullscreen) { /* IE/Edge */
+            modalContent.msRequestFullscreen();
         }
     };
 }
