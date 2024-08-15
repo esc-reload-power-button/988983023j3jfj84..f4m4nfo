@@ -327,7 +327,7 @@ footer p {
 #fullscreenBtn {
     position: fixed; /* Positioned relative to the viewport */
     bottom: 20px;
-    right: 20px;
+    left: 20px; /* Move to bottom-left */
     background: #ff6600;
     color: #fff;
     border: none;
