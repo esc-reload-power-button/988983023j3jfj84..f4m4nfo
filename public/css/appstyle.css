@@ -375,7 +375,7 @@ footer {
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 10px; /* Adjusted from previous */
+    bottom: 0px; /* Adjusted from previous */
     left: 10px; /* Adjusted from previous */
     background: #ff6600;
     color: #fff;
@@ -394,7 +394,7 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: 10px; /* Adjusted from previous */
+    top: 0px; /* Adjusted from previous */
     right: 10px; /* Adjusted from previous */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
