@@ -84,9 +84,6 @@ async function loadGames() {
         const title = document.createElement('p');
         title.textContent = gameInfo.Name || 'Unknown Title';
 
-        const description = document.createElement('p');
-        description.textContent = gameInfo.Genre || 'No genre available.';
-
         gameThumbnail.appendChild(img);
         gameThumbnail.appendChild(title);
         gameThumbnail.appendChild(description);
