@@ -1,2 +1,2 @@
 Name: Smash Karts
-Genre: Adventure
+Genre: Popular
