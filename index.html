@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter - Explore the Universe of Games</title>
+    <link rel="stylesheet" href="css/homestyle.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header with Blur Effect -->
+    <header class="blur-header">
+        <div class="logo">
+            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+        </div>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="dropdown-toggle"><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon"></a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="#">Games</a>
+                        <a href="#">Apps</a>
+                    </div>
+                </li>
+                <li class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content with Rounded Frames -->
+    <main>
+        <section class="main-section">
+            <div class="blurred-frame frame-top">
+                <div class="welcome-message">🎉 Welcome to Jupiter! 🎉</div>
+                <div class="changelog">
+                    <h3>Changelog</h3>
+                    <hr class="changelog-line">
+                    <ul>
+                        <li>
+                            <strong>August 12, 2024</strong> - <em>Version 1.2.0</em>
+                            <p>Added new features to enhance user experience and fixed bugs related to navigation and performance.</p>
+                        </li>
+                        <li>
+                            <strong>July 25, 2024</strong> - <em>Version 1.1.0</em>
+                            <p>Updated UI for better accessibility and improved loading times.</p>
+                        </li>
+                        <li>
+                            <strong>June 15, 2024</strong> - <em>Version 1.0.0</em>
+                            <p>Initial release with core functionalities and basic UI.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <div class="blurred-frame button-frame">
+                    <a href="games.html" class="button">Go to Games</a>
+                </div>
+                <div class="blurred-frame button-frame">
+                    <a href="apps.html" class="button">Go to Apps</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jupiter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdown Toggle -->
+    <script>
+        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
+            event.preventDefault();
+            const dropdownContent = document.getElementById('dropdown-content');
+            dropdownContent.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
