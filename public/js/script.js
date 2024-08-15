@@ -14,7 +14,8 @@ async function fetchGameData(folderPath) {
 }
 
 async function loadGames() {
-    const gameFolders = ['/public/games/Smash Karts', '/public/games/Minecraft']; // Add more paths as needed
+    // Use paths relative to the root of the web server
+    const gameFolders = ['/games/Smash%20Karts', '/games/Minecraft']; // Note: Space is replaced with %20
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
