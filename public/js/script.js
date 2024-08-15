@@ -1,3 +1,24 @@
+// Function to fetch game data
+async function fetchGameData(folderPath) {
+    try {
+        const response = await fetch(`${folderPath}/info.txt`);
+        if (!response.ok) throw new Error(`Failed to fetch ${folderPath}/info.txt`);
+        const data = await response.text();
+        const gameInfo = {};
+        
+        data.split('\n').forEach(line => {
+            const [key, value] = line.split(':');
+            if (key && value) {
+                gameInfo[key.trim()] = value.trim();
+            }
+        });
+        return gameInfo;
+    } catch (error) {
+        console.error(error.message);
+        return null;
+    }
+}
+
 // Function to open the game URL in a new tab with iframe
 function openGameInNewTab(url) {
     var win;
@@ -24,7 +45,7 @@ function openGameInNewTab(url) {
     }
 }
 
-// Function to load games and attach event listeners
+// Function to load games
 async function loadGames() {
     const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
 
