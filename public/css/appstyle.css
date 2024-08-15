@@ -352,26 +352,31 @@ footer {
 
 /* Modal Content */
 #appModal .modal-content {
-    margin: 0; /* Remove margin for fullscreen */
-    padding: 0; /* Remove padding for fullscreen */
-    width: 100%;
-    height: 100%;
+    margin: 5% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
     background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
-    border-radius: 0; /* Remove border-radius for fullscreen */
-    box-shadow: none; /* Remove box-shadow for fullscreen */
+    border-radius: 12px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    display: flex; /* Use flexbox to center content */
-    flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
+    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
     box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Modal Text */
+#appModal .warning-text {
+    margin-top: 10px;
+    color: #ff6600;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
 }
 
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 10px; /* Adjusted for better placement */
-    left: 10px; /* Adjusted for better placement */
+    bottom: 5px; /* Adjusted from previous */
+    left: 10px; /* Adjusted from previous */
     background: #ff6600;
     color: #fff;
     border: none;
@@ -389,8 +394,8 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: 10px; /* Adjusted for better placement */
-    right: 10px; /* Adjusted for better placement */
+    top: -5px; /* Adjusted from previous */
+    right: 7px; /* Adjusted from previous */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;
@@ -403,23 +408,4 @@ footer {
 .close:focus {
     color: #ff3300;
     text-decoration: none;
-}
-
-/* Hidden elements in fullscreen mode */
-#appModal:fullscreen .modal-content .fullscreen-btn,
-#appModal:-webkit-full-screen .modal-content .fullscreen-btn,
-#appModal:-moz-full-screen .modal-content .fullscreen-btn,
-#appModal:-ms-fullscreen .modal-content .fullscreen-btn,
-#appModal:fullscreen .modal-content .close,
-#appModal:-webkit-full-screen .modal-content .close,
-#appModal:-moz-full-screen .modal-content .close,
-#appModal:-ms-fullscreen .modal-content .close {
-    display: none; /* Hide the fullscreen button and exit button in fullscreen mode */
-}
-
-/* iFrame */
-#appFrame {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove iframe border */
 }
