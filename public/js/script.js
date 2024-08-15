@@ -4,6 +4,8 @@ function openGameInModal(url) {
     const iframe = document.getElementById('gameFrame');
     const fullscreenBtn = document.getElementById('fullscreenBtn');
 
+    console.log('Opening game URL:', url); // Debug line to check URL
+
     iframe.src = url;
     modal.style.display = 'block';
 
