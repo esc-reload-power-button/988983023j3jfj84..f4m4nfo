@@ -395,7 +395,7 @@ footer {
 .close {
     position: absolute;
     top: -5px; /* Adjusted from previous */
-    right: 10px; /* Adjusted from previous */
+    right: 7px; /* Adjusted from previous */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;
