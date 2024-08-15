@@ -20,7 +20,7 @@ async function fetchGameData(folderPath) {
 }
 
 // Function to open game URL in a new tab
-function openGameInNewTab(url) {
+function openGameInNewTab('https://www.example.com') {
     try {
         const newTab = window.open('about:blank', '_blank');
         newTab.document.open();
