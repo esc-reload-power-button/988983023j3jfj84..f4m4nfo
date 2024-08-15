@@ -1,0 +1,3 @@
+Name: The Useless Web
+Genre: Popular
+URL: /apps/UselessWeb/index.html
