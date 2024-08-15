@@ -190,6 +190,7 @@ main {
     text-align: center;
 }
 
+/* Blurred Frame */
 .blurred-frame {
     background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     border-radius: 12px;
@@ -200,6 +201,7 @@ main {
     position: relative;
 }
 
+/* Section Headers */
 .frame-top {
     padding: 20px;
     margin-bottom: 20px;
@@ -216,6 +218,7 @@ main {
     margin-bottom: 40px;
 }
 
+/* Game Info */
 .game-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
@@ -231,22 +234,23 @@ main {
     opacity: 0.7;
 }
 
+/* Game Grid */
 .game-grid {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping */
-    justify-content: center;
+    flex-direction: column; /* Stack sections vertically */
     gap: 20px;
+    align-items: center; /* Center align each section */
 }
 
 /* Game Thumbnails */
 .game-thumbnail {
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for scaling and shadow */
-    max-width: 200px; /* Limit maximum width */
+    max-width: 200px; /* Keep original size */
 }
 
 .game-thumbnail img {
-    width: 100%;
+    width: 100%; /* Maintain aspect ratio */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -330,5 +334,9 @@ footer p {
     
     .button-frame {
         margin-bottom: 10px;
+    }
+    
+    .game-grid {
+        flex-direction: column; /* Stack sections vertically */
     }
 }
