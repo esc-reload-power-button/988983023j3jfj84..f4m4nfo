@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupiter - Explore the Universe of Apps</title>
+    <link rel="stylesheet" href="css/gamestyle.css"> <!-- Change CSS file if necessary -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modal overlay styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+        }
+
+        /* Modal content styles */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            position: relative;
+        }
+
+        /* Close button styles */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+
+        /* Fullscreen button styles */
+        .fullscreen-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .fullscreen-btn:hover {
+            background-color: #45a049;
+        }
+
+        iframe {
+            width: 100%;
+            height: 600px; /* Adjust as needed */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Blur Effect -->
+    <header class="blur-header">
+        <a href="index.html" class="logo">
+            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+        </a>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#" id="dropdown-toggle"><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon"></a>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <a href="games.html">Games</a>
+                        <a href="apps.html">Apps</a>
+                        <a href="proxy.html">Proxy</a>
+                    </div>
+                </li>
+                <li class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content with App Sections -->
+    <main>
+        <!-- Sections will be dynamically populated -->
+        <section id="popular-apps" class="app-section">
+            <h3>Popular Apps</h3>
+            <hr class="app-line">
+            <div class="app-grid"></div>
+        </section>
+        <section id="utility-apps" class="app-section">
+            <h3>Utility Apps</h3>
+            <hr class="app-line">
+            <div class="app-grid"></div>
+        </section>
+        <section id="productivity-apps" class="app-section">
+            <h3>Productivity Apps</h3>
+            <hr class="app-line">
+            <div class="app-grid"></div>
+        </section>
+        <section id="social-apps" class="app-section">
+            <h3>Social Apps</h3>
+            <hr class="app-line">
+            <div class="app-grid"></div>
+        </section>
+        <section id="other-apps" class="app-section">
+            <h3>Other Apps</h3>
+            <hr class="app-line">
+            <div class="app-grid"></div>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div id="appModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="appFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+            <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen</button>
+            <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Jupiter. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Dropdown Toggle and Loading Apps -->
+    <script src="js/script.js"></script>
+    <script>
+        document.getElementById('dropdown-toggle').addEventListener('click', function(event) {
+            event.preventDefault();
+            const dropdownContent = document.getElementById('dropdown-content');
+            dropdownContent.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
