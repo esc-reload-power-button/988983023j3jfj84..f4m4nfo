@@ -350,76 +350,33 @@ footer {
     backdrop-filter: blur(10px); /* Blur the background behind the modal */
 }
 
-/* Fullscreen Styles for Modal */
-#appModal:fullscreen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-webkit-full-screen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-moz-full-screen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-ms-fullscreen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
 /* Modal Content */
 #appModal .modal-content {
-    margin: 0; /* Remove margin for fullscreen */
-    padding: 0; /* Remove padding for fullscreen */
-    width: 100%;
-    height: 100%;
+    margin: 5% auto; /* Center the modal vertically and horizontally */
+    padding: 20px;
     background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
-    border-radius: 0; /* Remove border-radius for fullscreen */
-    box-shadow: none; /* Remove box-shadow for fullscreen */
+    border-radius: 12px;
+    max-width: 800px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     position: relative;
-    display: flex; /* Use flexbox to center content */
-    justify-content: center;
-    align-items: center;
+    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
     box-sizing: border-box; /* Ensure padding does not affect width */
-}
-
-/* Iframe Styles */
-#appFrame {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove iframe border */
 }
 
 /* Modal Text */
 #appModal .warning-text {
-    position: absolute; /* Position relative to modal-content */
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    margin-top: 10px;
     color: #ff6600;
     font-size: 14px;
     text-align: center;
     font-weight: 600;
-    margin: 0; /* Reset margin */
 }
 
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 10px; /* Adjusted for better placement */
-    left: 10px; /* Adjusted for better placement */
+    bottom: 5px; /* Adjusted from previous */
+    left: 10px; /* Adjusted from previous */
     background: #ff6600;
     color: #fff;
     border: none;
@@ -437,8 +394,8 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: 10px; /* Adjusted for better placement */
-    right: 10px; /* Adjusted for better placement */
+    top: -5px; /* Adjusted from previous */
+    right: 7px; /* Adjusted from previous */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;
