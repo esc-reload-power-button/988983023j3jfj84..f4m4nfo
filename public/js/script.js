@@ -52,6 +52,7 @@ async function fetchGameData(folderPath) {
 }
 
 // Function to load games
+
 async function loadGames() {
     const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
 
@@ -65,9 +66,9 @@ async function loadGames() {
 
         const gameImageSrc = `${folderPath}/game.png`;
         const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase().replace(/\s+/g, '-') + '-games') || 'unknown-games';
-        
+
         const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
-        
+
         if (!gameGrid) {
             console.error(`No game grid found for category: ${gameCategory}`);
             continue;
@@ -78,26 +79,16 @@ async function loadGames() {
         
         const img = document.createElement('img');
         img.src = gameImageSrc;
-        img.alt = gameInfo.Name;
-        
-        const p = document.createElement('p');
-        p.textContent = gameInfo.Name;
-        
-        const link = document.createElement('a');
-        link.href = '#'; // Placeholder
-        link.className = 'game-link';
-        link.textContent = 'Play'; // Add a text to make it clickable
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            openGameInModal(gameInfo.URL);
-        });
+        img.alt = gameInfo.Title || 'Game Thumbnail';
 
         gameThumbnail.appendChild(img);
-        gameThumbnail.appendChild(p);
-        gameThumbnail.appendChild(link);
         gameGrid.appendChild(gameThumbnail);
+
+        // Make the game thumbnail clickable
+        gameThumbnail.onclick = () => openGameInModal(folderPath);
     }
 }
+
 
 // Load the games when the page is loaded
 window.addEventListener('load', loadGames);
