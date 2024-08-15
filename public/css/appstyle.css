@@ -350,33 +350,97 @@ footer {
     backdrop-filter: blur(10px); /* Blur the background behind the modal */
 }
 
+/* Modal Styles */
+#appModal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* On top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+    backdrop-filter: blur(10px); /* Blur the background behind the modal */
+}
+
+/* Fullscreen Styles for Modal */
+#appModal:fullscreen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#appModal:-webkit-full-screen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#appModal:-moz-full-screen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+#appModal:-ms-fullscreen {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
 /* Modal Content */
 #appModal .modal-content {
-    margin: 5% auto; /* Center the modal vertically and horizontally */
-    padding: 20px;
+    margin: 0; /* Remove margin for fullscreen */
+    padding: 0; /* Remove padding for fullscreen */
+    width: 100%;
+    height: 100%;
     background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
-    border-radius: 12px;
-    max-width: 800px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0; /* Remove border-radius for fullscreen */
+    box-shadow: none; /* Remove box-shadow for fullscreen */
     position: relative;
-    backdrop-filter: blur(5px); /* Apply blur to the content inside the modal */
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack content vertically */
     box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Fullscreen Container */
+#fullscreenContainer {
+    flex: 1; /* Allow the container to grow and fill available space */
+    display: flex; /* Use flexbox to center iframe */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#appFrame {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
 }
 
 /* Modal Text */
 #appModal .warning-text {
-    margin-top: 10px;
+    position: absolute; /* Position relative to modal-content */
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #ff6600;
     font-size: 14px;
     text-align: center;
     font-weight: 600;
+    margin: 0; /* Reset margin */
 }
 
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 5px; /* Adjusted from previous */
-    left: 10px; /* Adjusted from previous */
+    bottom: 10px; /* Adjusted for better placement */
+    left: 10px; /* Adjusted for better placement */
     background: #ff6600;
     color: #fff;
     border: none;
@@ -394,8 +458,8 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: -5px; /* Adjusted from previous */
-    right: 7px; /* Adjusted from previous */
+    top: 10px; /* Adjusted for better placement */
+    right: 10px; /* Adjusted for better placement */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;

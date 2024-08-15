@@ -19,7 +19,9 @@ function openAppInModal(url) {
 
     // Toggle fullscreen mode
     fullscreenBtn.onclick = function() {
-        if (modalContent.requestFullscreen) {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else if (modalContent.requestFullscreen) {
             modalContent.requestFullscreen();
         } else if (modalContent.mozRequestFullScreen) { /* Firefox */
             modalContent.mozRequestFullScreen();
@@ -30,6 +32,7 @@ function openAppInModal(url) {
         }
     };
 }
+
 
 
 // Function to fetch app data
