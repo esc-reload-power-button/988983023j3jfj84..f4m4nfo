@@ -1,30 +1,47 @@
-// Function to fetch game data from info.txt
+// Function to fetch game data
 async function fetchGameData(folderPath) {
-    const response = await fetch(`${folderPath}/info.txt`);
-    const data = await response.text();
-    const gameInfo = {};
-    
-    data.split('\n').forEach(line => {
-        const [key, value] = line.split(':');
-        if (key && value) {
-            gameInfo[key.trim()] = value.trim();
+    try {
+        const response = await fetch(`${folderPath}/info.txt`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${folderPath}/info.txt`);
         }
-    });
-    return gameInfo;
+        const data = await response.text();
+        const gameInfo = {};
+
+        data.split('\n').forEach(line => {
+            const [key, value] = line.split(':');
+            if (key && value) {
+                gameInfo[key.trim()] = value.trim();
+            }
+        });
+        return gameInfo;
+    } catch (error) {
+        console.error(error);
+        return null;
+    }
 }
 
-// Function to load games and add event listeners
 async function loadGames() {
     const gameFolders = ['/games/SmashKarts', '/games/Minecraft']; // Update with correct paths
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
-        
+
+        if (!gameInfo) {
+            console.error(`No game info found for ${folderPath}`);
+            continue;
+        }
+
         const gameImageSrc = `${folderPath}/game.png`;
-        const gameCategory = gameInfo.Genre.toLowerCase() + '-games';
+        const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase()) || 'unknown-games';
         
         const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
         
+        if (!gameGrid) {
+            console.error(`No game grid found for category: ${gameCategory}`);
+            continue;
+        }
+
         const gameThumbnail = document.createElement('div');
         gameThumbnail.className = 'game-thumbnail';
         
@@ -36,8 +53,9 @@ async function loadGames() {
         p.textContent = gameInfo.Name;
         
         const link = document.createElement('a');
-        link.href = '#'; // Placeholder, will be updated with JavaScript
+        link.href = '#'; // Placeholder
         link.className = 'game-link';
+        link.textContent = 'Play'; // Add a text to make it clickable
         link.addEventListener('click', function(event) {
             event.preventDefault();
             openGameInNewTab(gameInfo.URL);
