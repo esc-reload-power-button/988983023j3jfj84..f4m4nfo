@@ -327,16 +327,16 @@ footer p {
 
 /* Fullscreen Button */
 #fullscreenBtn {
-    position: fixed; /* Positioned relative to the viewport */
-    bottom: 350px; /* Move to bottom-left */
-    left: 350px; /* Move to bottom-left */
+    position: absolute; /* Positioned relative to the modal content */
+    bottom: 10px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
     background: #ff6600;
     color: #fff;
     border: none;
     border-radius: 6px;
     padding: 8px 12px;
     cursor: pointer;
-    z-index: 1002; /* Ensure it stays on top of the modal */
+    z-index: 1002; /* Ensure it stays on top of other modal content */
 }
 
 #fullscreenBtn:hover {
