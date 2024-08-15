@@ -64,6 +64,7 @@ async function loadApps() {
         }
 
         const appImageSrc = `${folderPath}/app.png`;
+        // Convert Category to lower-case and replace spaces with hyphens
         const appCategory = (appInfo.Category && appInfo.Category.toLowerCase().replace(/\s+/g, '-') + '-apps') || 'unknown-apps';
 
         const appGrid = document.querySelector(`#${appCategory} .app-grid`);
