@@ -1,4 +1,4 @@
-// Function to open game URL in a new tab
+// Function to open the game URL in a new tab with iframe
 function openGameInNewTab(url) {
     var win;
 
@@ -21,17 +21,10 @@ function openGameInNewTab(url) {
             `);
             win.document.close();
         }
-        // Change the button's state after opening the game
-        const button = document.querySelector(`.game-thumbnail[data-url="${url}"] .game-link`);
-        if (button) {
-            button.style.backgroundColor = 'grey';
-            button.style.borderColor = 'grey';
-            button.innerHTML = "Opened";
-        }
     }
 }
 
-// Function to load games
+// Function to load games and attach event listeners
 async function loadGames() {
     const gameFolders = ['/games/SmashKarts']; // Only Smash Karts for now
 
