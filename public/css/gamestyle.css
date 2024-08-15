@@ -206,12 +206,14 @@ main {
 /* Game Sections */
 .game-section {
     margin-bottom: 40px;
+    text-align: center; /* Center the text within the game-section */
 }
 
 .game-info h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 700;
+    position: relative; /* Position relative to allow for absolute positioning of the line */
 }
 
 .game-line {
@@ -219,7 +221,7 @@ main {
     height: 2px;
     background: #ff6600;
     border: none;
-    margin: 10px auto;
+    margin: 10px auto; /* Center the line with auto margins */
     opacity: 0.7;
 }
 
