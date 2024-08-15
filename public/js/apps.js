@@ -29,7 +29,7 @@ function openAppInModal(url) {
         }
     };
 }
- 
+
 // Function to fetch app data
 async function fetchAppData(folderPath) {
     try {
