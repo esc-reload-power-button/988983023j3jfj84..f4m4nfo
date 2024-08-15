@@ -338,7 +338,7 @@ footer {
 }
 
 /* Modal Styles */
-#appModal {
+#gameModal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1001; /* On top */
@@ -350,8 +350,7 @@ footer {
     backdrop-filter: blur(10px); /* Blur the background behind the modal */
 }
 
-/* Modal Content */
-#appModal .modal-content {
+#gameModal .modal-content {
     margin: 5% auto; /* Center the modal vertically and horizontally */
     padding: 20px;
     background: rgba(34, 34, 34, 0.8); /* Semi-transparent dark background */
@@ -364,7 +363,7 @@ footer {
 }
 
 /* Modal Text */
-#appModal .warning-text {
+#gameModal .warning-text {
     margin-top: 10px;
     color: #ff6600;
     font-size: 14px;
@@ -375,8 +374,8 @@ footer {
 /* Fullscreen Button */
 #fullscreenBtn {
     position: absolute; /* Positioned relative to the modal content */
-    bottom: 5px; /* Adjusted from previous */
-    left: 10px; /* Adjusted from previous */
+    bottom: 0px; /* Adjust as needed */
+    left: 10px; /* Adjust as needed */
     background: #ff6600;
     color: #fff;
     border: none;
@@ -384,7 +383,6 @@ footer {
     padding: 8px 12px;
     cursor: pointer;
     z-index: 1002; /* Ensure it stays on top of other modal content */
-    transition: background 0.3s ease; /* Smooth background transition */
 }
 
 #fullscreenBtn:hover {
@@ -394,18 +392,18 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: -5px; /* Adjusted from previous */
-    right: 7px; /* Adjusted from previous */
+    top: -7px; /* Adjusted position */
+    right: 5px;
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
     z-index: 1003; /* Ensure it's visible over the modal content */
-    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .close:hover,
 .close:focus {
     color: #ff3300;
     text-decoration: none;
+    cursor: pointer;
 }

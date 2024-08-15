@@ -19,18 +19,17 @@ function openAppInModal(url) {
 
     // Toggle fullscreen mode
     fullscreenBtn.onclick = function() {
-        if (modalContent.requestFullscreen) {
-            modalContent.requestFullscreen();
-        } else if (modalContent.mozRequestFullScreen) { /* Firefox */
-            modalContent.mozRequestFullScreen();
-        } else if (modalContent.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            modalContent.webkitRequestFullscreen();
-        } else if (modalContent.msRequestFullscreen) { /* IE/Edge */
-            modalContent.msRequestFullscreen();
+        if (iframe.requestFullscreen) {
+            iframe.requestFullscreen();
+        } else if (iframe.mozRequestFullScreen) { /* Firefox */
+            iframe.mozRequestFullScreen();
+        } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            iframe.webkitRequestFullscreen();
+        } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+            iframe.msRequestFullscreen();
         }
     };
 }
-
 
 // Function to fetch app data
 async function fetchAppData(folderPath) {
