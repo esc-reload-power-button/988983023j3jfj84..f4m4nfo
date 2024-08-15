@@ -394,7 +394,7 @@ footer {
 /* Exit Button */
 .close {
     position: absolute;
-    top: 0px; /* Adjusted from previous */
+    top: -5px; /* Adjusted from previous */
     right: 10px; /* Adjusted from previous */
     color: #ff6600; /* Ensure orange color */
     font-size: 28px;
