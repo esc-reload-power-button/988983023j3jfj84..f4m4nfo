@@ -21,14 +21,14 @@ function openAppInModal(url) {
     fullscreenBtn.onclick = function() {
         if (document.fullscreenElement) {
             document.exitFullscreen();
-        } else if (modalContent.requestFullscreen) {
-            modalContent.requestFullscreen();
-        } else if (modalContent.mozRequestFullScreen) { /* Firefox */
-            modalContent.mozRequestFullScreen();
-        } else if (modalContent.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-            modalContent.webkitRequestFullscreen();
-        } else if (modalContent.msRequestFullscreen) { /* IE/Edge */
-            modalContent.msRequestFullscreen();
+        } else if (modal.requestFullscreen) {
+            modal.requestFullscreen();
+        } else if (modal.mozRequestFullScreen) { /* Firefox */
+            modal.mozRequestFullScreen();
+        } else if (modal.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+            modal.webkitRequestFullscreen();
+        } else if (modal.msRequestFullscreen) { /* IE/Edge */
+            modal.msRequestFullscreen();
         }
     };
 }

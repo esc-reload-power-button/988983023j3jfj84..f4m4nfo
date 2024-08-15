@@ -350,48 +350,6 @@ footer {
     backdrop-filter: blur(10px); /* Blur the background behind the modal */
 }
 
-/* Modal Styles */
-#appModal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1001; /* On top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
-    backdrop-filter: blur(10px); /* Blur the background behind the modal */
-}
-
-/* Fullscreen Styles for Modal */
-#appModal:fullscreen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-webkit-full-screen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-moz-full-screen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-#appModal:-ms-fullscreen {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
 /* Modal Content */
 #appModal .modal-content {
     margin: 0; /* Remove margin for fullscreen */
@@ -404,36 +362,9 @@ footer {
     position: relative;
     display: flex; /* Use flexbox to center content */
     flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
     box-sizing: border-box; /* Ensure padding does not affect width */
-}
-
-/* Fullscreen Container */
-#fullscreenContainer {
-    flex: 1; /* Allow the container to grow and fill available space */
-    display: flex; /* Use flexbox to center iframe */
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-#appFrame {
-    width: 100%;
-    height: 100%;
-    border: none; /* Remove iframe border */
-}
-
-/* Modal Text */
-#appModal .warning-text {
-    position: absolute; /* Position relative to modal-content */
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #ff6600;
-    font-size: 14px;
-    text-align: center;
-    font-weight: 600;
-    margin: 0; /* Reset margin */
 }
 
 /* Fullscreen Button */
@@ -472,4 +403,23 @@ footer {
 .close:focus {
     color: #ff3300;
     text-decoration: none;
+}
+
+/* Hidden elements in fullscreen mode */
+#appModal:fullscreen .modal-content .fullscreen-btn,
+#appModal:-webkit-full-screen .modal-content .fullscreen-btn,
+#appModal:-moz-full-screen .modal-content .fullscreen-btn,
+#appModal:-ms-fullscreen .modal-content .fullscreen-btn,
+#appModal:fullscreen .modal-content .close,
+#appModal:-webkit-full-screen .modal-content .close,
+#appModal:-moz-full-screen .modal-content .close,
+#appModal:-ms-fullscreen .modal-content .close {
+    display: none; /* Hide the fullscreen button and exit button in fullscreen mode */
+}
+
+/* iFrame */
+#appFrame {
+    width: 100%;
+    height: 100%;
+    border: none; /* Remove iframe border */
 }
