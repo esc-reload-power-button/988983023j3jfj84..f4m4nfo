@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/gamestyle.css">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
+	<style>
         /* Modal overlay styles */
         .modal {
             display: none; /* Hidden by default */
@@ -76,12 +76,17 @@
     <!-- Header with Blur Effect -->
     <header class="blur-header">
         <div class="logo">
-            <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            <!-- Link added to logo image -->
+            <a href="index.html">
+                <img src="https://i.postimg.cc/FKCJQmP0/jupi-ter.png" alt="Jupiter Logo">
+            </a>
         </div>
         <nav>
             <ul>
                 <li class="dropdown">
-                    <a href="#" id="dropdown-toggle"><img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon"></a>
+                    <a href="#" id="dropdown-toggle">
+                        <img src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="Sections" class="dropdown-icon">
+                    </a>
                     <div class="dropdown-content" id="dropdown-content">
                         <a href="#">Games</a>
                         <a href="#">Apps</a>
@@ -89,7 +94,9 @@
                 </li>
                 <li class="search-bar">
                     <input type="text" placeholder="Search...">
-                    <button><img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search"></button>
+                    <button>
+                        <img src="https://img.icons8.com/?size=100&id=7695&format=png&color=FFFFFF" alt="Search">
+                    </button>
                 </li>
             </ul>
         </nav>
@@ -125,22 +132,43 @@
         </section>
     </main>
 
-<!-- Modal -->
-<div id="gameModal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
-        <button id="fullscreenBtn">Fullscreen</button> <!-- Moved inside the modal -->
-        <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
+    <!-- Modal -->
+    <div id="gameModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="gameFrame" src="" sandbox="allow-same-origin allow-scripts"></iframe>
+            <button id="fullscreenBtn" class="fullscreen-btn">Fullscreen</button>
+            <p class="warning-text">Close any pop-ups! They are not from Jupiter.</p>
+        </div>
     </div>
-</div>
 
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Jupiter. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript for Dropdown Toggle and Loading Games -->
-    <script src="js/script.js"></script>
+    <!-- JavaScript for Dropdown Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dropdownToggle = document.getElementById('dropdown-toggle');
+            const dropdownContent = document.getElementById('dropdown-content');
+
+            if (dropdownToggle && dropdownContent) {
+                dropdownToggle.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    dropdownContent.classList.toggle('show');
+                });
+
+                // Close dropdown if clicked outside
+                window.addEventListener('click', (event) => {
+                    if (!event.target.matches('#dropdown-toggle')) {
+                        if (dropdownContent.classList.contains('show')) {
+                            dropdownContent.classList.remove('show');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
