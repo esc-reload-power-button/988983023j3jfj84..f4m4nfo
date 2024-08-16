@@ -7,7 +7,8 @@ function openGameInCloakedTab(url) {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Game</title>
+            <title>Index</title>
+            <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
             <style>
                 body {
                     margin: 0;
@@ -27,7 +28,6 @@ function openGameInCloakedTab(url) {
     `);
     win.document.close();
 }
-
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
