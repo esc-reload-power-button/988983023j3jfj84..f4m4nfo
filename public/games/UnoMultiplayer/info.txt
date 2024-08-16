@@ -1,0 +1,3 @@
+Name: Uno Multiplayer
+Genre: Strategy
+URL: /games/UnoMultiplayer/index.html
