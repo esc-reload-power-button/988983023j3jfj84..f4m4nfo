@@ -3,7 +3,7 @@ function openGameInCloakedTab(url) {
     // Create a new cloaked tab
     const win = window.open('about:blank', '_blank');
     win.document.open();
-    win.document.write(`
+    win.document.write(
         <!DOCTYPE html>
         <html>
         <head>
@@ -25,15 +25,14 @@ function openGameInCloakedTab(url) {
             <iframe src="${url}" sandbox="allow-same-origin allow-scripts"></iframe>
         </body>
         </html>
-    `);
+    );
     win.document.close();
 }
-
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
-        const response = await fetch(`${folderPath}/info.txt`);
-        if (!response.ok) throw new Error(`Failed to fetch ${folderPath}/info.txt`);
+        const response = await fetch(${folderPath}/info.txt);
+        if (!response.ok) throw new Error(Failed to fetch ${folderPath}/info.txt);
         const data = await response.text();
         const gameInfo = {};
         
@@ -50,38 +49,25 @@ async function fetchGameData(folderPath) {
     }
 }
 
-// Function to fetch the list of game folders from the server
-async function fetchGameFolders() {
-    try {
-        const response = await fetch('/get-game-folders');
-        if (!response.ok) throw new Error('Failed to fetch game folders');
-        const folders = await response.json();
-        return folders;
-    } catch (error) {
-        console.error(error.message);
-        return [];
-    }
-}
-
 // Function to load games
 async function loadGames() {
-    const gameFolders = await fetchGameFolders();
+    const gameFolders = ['/games/SmashKarts', '/games/Minecraft'];
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
 
         if (!gameInfo) {
-            console.error(`No game info found for ${folderPath}`);
+            console.error(No game info found for ${folderPath});
             continue;
         }
 
-        const gameImageSrc = `${folderPath}/game.png`;
+        const gameImageSrc = ${folderPath}/game.png;
         const gameCategory = (gameInfo.Genre && gameInfo.Genre.toLowerCase().replace(/\s+/g, '-') + '-games') || 'unknown-games';
 
-        const gameGrid = document.querySelector(`#${gameCategory} .game-grid`);
+        const gameGrid = document.querySelector(#${gameCategory} .game-grid);
 
         if (!gameGrid) {
-            console.error(`No game grid found for category: ${gameCategory}`);
+            console.error(No game grid found for category: ${gameCategory});
             continue;
         }
 
