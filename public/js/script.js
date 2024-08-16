@@ -28,6 +28,7 @@ function openGameInCloakedTab(url) {
     `);
     win.document.close();
 }
+
 // Function to fetch game data
 async function fetchGameData(folderPath) {
     try {
@@ -49,9 +50,22 @@ async function fetchGameData(folderPath) {
     }
 }
 
+// Function to fetch the list of game folders from the server
+async function fetchGameFolders() {
+    try {
+        const response = await fetch('/get-game-folders');
+        if (!response.ok) throw new Error('Failed to fetch game folders');
+        const folders = await response.json();
+        return folders;
+    } catch (error) {
+        console.error(error.message);
+        return [];
+    }
+}
+
 // Function to load games
 async function loadGames() {
-    const gameFolders = ['/games/SmashKarts', '/games/Minecraft']; // Only Smash Karts for now
+    const gameFolders = await fetchGameFolders();
 
     for (const folderPath of gameFolders) {
         const gameInfo = await fetchGameData(folderPath);
