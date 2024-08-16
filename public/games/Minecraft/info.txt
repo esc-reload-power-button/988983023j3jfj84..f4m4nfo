@@ -1,0 +1,3 @@
+Name: Minecraft
+Genre: Popular
+URL: /games/Minecraft/index.html
