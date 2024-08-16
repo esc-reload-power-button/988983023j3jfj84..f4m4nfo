@@ -7,7 +7,7 @@ function openGameInCloakedTab(url) {
         <!DOCTYPE html>
         <html>
         <head>
-            <title>Index</title>
+            <title>Inbox</title>
             <link rel="icon" href="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" type="image/png">
             <style>
                 body {
